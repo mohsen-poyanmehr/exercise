@@ -30,7 +30,7 @@ var app = angular.module("app", []);
 		$scope.delete = function(id){
 			for(var i in $scope.contacts){
 				if ($scope.contacts[i].id==id) {
-					$scope.contacts[i].splice(i,1);
+					$scope.contacts.splice(i,1);
 					$scope.newContact=null;
 				}
 			}
