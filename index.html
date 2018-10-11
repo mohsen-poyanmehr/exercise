@@ -3,12 +3,44 @@
 	<head>
 		<title>AngularJS</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
-		
+
 	</head>
-	<body ng-app="app">
-		<div ng-controller="HelloWorldController">
-			<h2>{{message}}</h2>
-		</div>
+	<body ng-app="app" ng-controller="MyController">
+			<form>
+				<label>Name :</label>
+				<input type="text" name="name" ng-model="newContact.name"/><br />
+				<label>Email :</label>
+				<input type="text" name="email" ng-model="newContact.email"/><br />
+				<label>Phone :</label>
+				<input type="text" name="phone" ng-model="newContact.phone"/><br />
+				<br />
+				<input type="hidden" ng-model="newContact.id" />
+				<input type="button" value="save" ng-click="save()"/>
+			</form>
+			<br />
+			<table>
+				<thead>
+					<th>
+						<tr>Name</tr>
+						<tr>Email</tr>
+						<tr>Phone</tr>
+						<tr>id</tr>
+						<tr>Actions</tr>
+					</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="contact in contacts">
+						<td >{{contact.name}}</td>
+						<td >{{contact.email}}</td>
+						<td >{{contact.phone}}</td>
+						<td >{{contact.id}}</td>
+						<td>
+							<a href="#" ng-click="edit(contact.id)">Edit</a>
+							<a href="#" ng-click="delete(contact.id)">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		<script type="text/javascript" src="HelloWorldController.js"></script>
 	</body>
 </html>
